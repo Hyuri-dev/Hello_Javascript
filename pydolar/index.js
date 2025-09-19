@@ -30,4 +30,7 @@ function changeContent(page) {
 
 fetch("https://api-bcv-ekgz.onrender.com/tipos-de-tasas/usdbcv")
   .then((response) => response.json())
-  .then((json) => console.log(json));
+  .then((data) => {
+    const tasa = data.valor;
+    console.log(tasa);
+  });
