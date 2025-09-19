@@ -23,6 +23,20 @@ nav {
     background-color: #5E8CFF;
 }
 
+footer {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-family:"IBM Plex Sans", sans-serif ;
+    font-weight: 600;
+}
+
+footer p , a {
+    color: #4a6bfc;
+    text-decoration: none;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -81,7 +95,7 @@ main {
     height: 35px;
 }
 
-.button_copy  {
+#button_copy  {
     border: none;
     background-color: #3C73FF;
     border-radius: 4px;
@@ -91,8 +105,15 @@ main {
     top: 5px;
     transition: background-color 0.3s ease;
     padding: 0;
+    width: 300px;
 }
 
-.button_copy :hover {
+#button_copy :hover {
     background-color: #5E8CFF;
 }
+
+#url_api  {
+    color: #3C73FF;
+    cursor:default;
+}
+

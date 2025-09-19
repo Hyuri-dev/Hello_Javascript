@@ -27,6 +27,23 @@ function changeContent(page) {
     `;
   }
 }
+let urlApiUsd = document.getElementById("url_api").innerHTML;
+
+async function copiar_tasa() {
+  try {
+    await navigator.clipboard.writeText(tasa);
+  } catch (err) {
+    console.error("error al copiar: ", err);
+  }
+}
+
+let button_copy = document.getElementById("button_copy");
+
+button_copy.addEventListener("click", () => {
+  navigator.clipboard.writeText(urlApiUsd);
+
+  alert("Se ha copiado la url al portapapeles");
+});
 
 fetch("https://api-bcv-ekgz.onrender.com/tipos-de-tasas/usdbcv")
   .then((response) => response.json())
