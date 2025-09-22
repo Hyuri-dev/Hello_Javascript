@@ -3,8 +3,19 @@ function changeContent(page) {
   switch (page) {
     case "contacto":
       contentDiv.innerHTML = `
-            <h2> 
-            Si existe algun fallo con el api hazmelo saber y lo ajustare en cuanto pueda, o si deseas contactarme para trabajar en algun proyecto entonces adelante !
+            <h2>
+            Hay algun fallo o no esta funcionando el api ? o deseas contactarme para trabajar en algun proyecto ? Contactame! <br></br>
+            <form>
+            <label> Nombre: </label> <br>
+            <input type="text" name= "nombre" placeholder= "Tu nombre" required> <br> <br>
+            <label> Correo: </label> <br>
+            <input type="text" name= "correo" placeholder= "Tu correo" required> <br> <br>
+            <label> Mensaje: </label> <br>
+            <input type="text" name= "mensaje" placeholder= "Tu mensaje" required> <br> <br>
+            <textarea name = "mensaje" rows="5" placeholder ="Escribe tu mensaje aqui" required></textarea>
+            <br> <br>
+            <button type="submit"> Enviar </button>
+            </form>
             </h2> 
             `;
       break;
@@ -38,16 +49,36 @@ async function copiar_tasa() {
 }
 
 let button_copy = document.getElementById("button_copy");
-
 button_copy.addEventListener("click", () => {
   navigator.clipboard.writeText(urlApiUsd);
-
   alert("Se ha copiado la url al portapapeles");
 });
 
-fetch("https://api-bcv-ekgz.onrender.com/tipos-de-tasas/usdbcv")
-  .then((response) => response.json())
-  .then((data) => {
+/**
+ * Espera unos segundos antes de hacer el fetch para dar tiempo a que el servidor del API inicie.
+ * Utiliza await new Promise(resolve => setTimeout(resolve, ms)) para pausar la ejecución.
+ * En este ejemplo, espera 3 segundos (3000 ms) antes de hacer la petición.
+ */
+async function obtenerTasaYMostrar() {
+  try {
+    // Esperar 3 segundos antes de hacer el fetch
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    const response = await fetch(
+      "https://api-bcv-ekgz.onrender.com/tipos-de-tasas/usdbcv"
+    );
+    const data = await response.json();
     const tasa = data.valor;
-    console.log(tasa);
-  });
+    let h3_tasa = document.getElementById("tasa_actual");
+    // Encerramos la tasa en un <span> con clase para poder darle color desde CSS
+    h3_tasa.innerHTML = ` tasa de hoy: <span class="tasa-verde">${tasa}</span>`;
+    // Ahora puedes usar la variable tasa aquí o llamarla desde otra función
+    // Por ejemplo, puedes retornar tasa si lo necesitas en otro lado
+    return tasa;
+  } catch (error) {
+    console.error("Error al obtener la tasa:", error);
+  }
+}
+
+// Llamar la función para que se ejecute al cargar la página
+obtenerTasaYMostrar();
