@@ -176,15 +176,16 @@ form button {
 form button:hover {
   background-color: #5e8cff;
 }
-@media (width <400px) {
-  footer {
-    text-align: center;
-  }
-}
 
 #tasa_actual {
   color: white;
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 1.2em;
   margin-top: 0.5em;
+}
+
+@media (width <500px) {
+  footer {
+    text-align: center;
+  }
 }
