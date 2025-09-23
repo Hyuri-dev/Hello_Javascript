@@ -68,12 +68,25 @@ async function obtenerTasaYMostrar() {
       "https://api-bcv-ekgz.onrender.com/tipos-de-tasas/usdbcv"
     );
     const data = await response.json();
-    const tasa = data.valor;
+    let tasa = data.valor;
+    tasa = String(tasa).replace(".", ",");
     let h3_tasa = document.getElementById("tasa_actual");
     // Encerramos la tasa en un <span> con clase para poder darle color desde CSS
-    h3_tasa.innerHTML = ` tasa de hoy: <span class="tasa-verde">${tasa}</span>`;
-    // Ahora puedes usar la variable tasa aquí o llamarla desde otra función
-    // Por ejemplo, puedes retornar tasa si lo necesitas en otro lado
+    h3_tasa.innerHTML = ` tasa de hoy: <span class="tasa-verde">${tasa}</span> Bs <button id ="copy"> <img src ="assets/images/copy.svg" width = 32px height = 32px></img> </button>`;
+
+    // Creamos un evento para copiar la tasa con un click
+    let boton_copiar_tasa = document.getElementById("copy");
+    boton_copiar_tasa.addEventListener("click", () => {
+      navigator.clipboard.writeText(tasa);
+      // Mostrar el div de alerta con animación
+      let alerta = document.getElementById("hidden-alert");
+      alerta.classList.add("show");
+      // Ocultar el div de alerta después de 5 segundos con animación
+      setTimeout(function () {
+        alerta.classList.remove("show");
+      }, 5000);
+    });
+    // Ahora podemos usar la variable tasa aquí o llamarla desde otra función
     return tasa;
   } catch (error) {
     console.error("Error al obtener la tasa:", error);

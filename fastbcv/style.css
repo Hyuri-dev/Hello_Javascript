@@ -184,6 +184,47 @@ form button:hover {
   margin-top: 0.5em;
 }
 
+#copy {
+  background-color: #3c73ff;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 5s ease-in;
+}
+
+#copy :hover {
+  background-color: #5e8cff;
+}
+
+#hidden-alert {
+  display: none;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  min-width: 220px;
+  background-color: #3c73ff;
+  padding: 16px 28px;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(60, 115, 255, 0.15);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1.1em;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 9999;
+}
+
+#hidden-alert p {
+  color: #fff;
+}
+
+#hidden-alert.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (width <500px) {
   footer {
     text-align: center;
