@@ -65,7 +65,7 @@ async function obtenerTasaYMostrar() {
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const response = await fetch(
-      "https://api-bcv-ekgz.onrender.com/tipos-de-tasas/usdbcv"
+      "https://api-bcv.vercel.app/tipos-de-tasas/usdbcv"
     );
     const data = await response.json();
     let tasa = data.valor;
