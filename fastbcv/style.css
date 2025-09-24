@@ -229,4 +229,19 @@ form button:hover {
   footer {
     text-align: center;
   }
+
+  #hidden-alert {
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    font-size: 1em;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #hidden-alert p {
+    color: #3c73ff;
+  }
 }
