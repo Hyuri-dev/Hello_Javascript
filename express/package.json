@@ -1,0 +1,22 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hyuri-dev/Hello_Javascript.git"
+  },
+  "author": "Hyuri.dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hyuri-dev/Hello_Javascript.gitv/issues"
+  },
+  "homepage": "https://github.com/Hyuri-dev/Hello_Javascript.git#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
