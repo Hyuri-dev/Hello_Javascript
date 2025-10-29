@@ -2,8 +2,11 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+const taskRoutes = require("./routes/tasks.routes");
+
 app.use(express.json()); // Midleware que revisa o procesa las peticiones para luego convertirlas en un objeto js
 
+app.use("api", taskRoutes);
 let tasks = [{ id: 1, text: "Crear un roadmap de express", completed: true }];
 
 app.get("/", (req, res) => {

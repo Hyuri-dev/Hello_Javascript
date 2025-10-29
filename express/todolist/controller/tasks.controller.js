@@ -1,9 +1,13 @@
 import { TaskModel } from "../model/tasks.model";
 
 export class TaskController {
+  constructor() {
+    this.TaskModel = new TaskModel();
+  }
+
   getAll = (req, res) => {
-    const tasklist = TaskModel.getAll();
-    res.send(tasklist);
+    const tasklist = this.TaskModel.getAll();
+    res.status(200).json(tasklist);
   };
 
   createTask = (req, res) => {
