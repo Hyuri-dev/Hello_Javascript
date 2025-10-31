@@ -1,18 +1,16 @@
-const express = require("express");
+import { express } from "express"; // siempre usar modules
+import { taskRoutes } from "./routes/tasks.routes";
+
 const app = express();
 const port = 3000;
 
-const taskRoutes = require("./routes/tasks.routes");
-
 app.use(express.json()); // Midleware que revisa o procesa las peticiones para luego convertirlas en un objeto js
 
-app.use("api", taskRoutes);
+app.use("api", taskRoutes); // wtf esto va en el route xd este si, pero es viejo , de cuando empece y no habia visto la clase que me diste
 let tasks = [{ id: 1, text: "Crear un roadmap de express", completed: true }];
 
-app.get("/", (req, res) => {
-  res.send("To do list API");
-});
-
+// debo configurar el model para la bd pajupo pjaup pajupo
+// ya no corre xdxd
 app.get("/tasks", (req, res) => {
   res.json(tasks);
 });

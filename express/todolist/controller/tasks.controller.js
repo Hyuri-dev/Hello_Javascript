@@ -1,14 +1,10 @@
 import { TaskModel } from "../model/tasks.model";
 
 export class TaskController {
-  constructor() {
-    this.TaskModel = new TaskModel();
-  }
-
-  getAll = (req, res) => {
-    const tasklist = this.TaskModel.getAll();
+  getAll = async (_req, res) => {
+    const tasklist = await TaskModel.getAll();
     res.status(200).json(tasklist);
-  };
+  }; // este es el controller que vamos a referenciar en el route
 
   createTask = (req, res) => {
     const { text } = req.body;
