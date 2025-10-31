@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { TaskController } from "../controller/tasks.controller";
+import { TaskController } from "../controller/tasks.controller"; //es ete mosmi no ?
 
 const router = Router();
 
