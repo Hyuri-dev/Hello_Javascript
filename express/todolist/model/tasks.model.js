@@ -1,32 +1,12 @@
-class TaskModel {
-  constructor() {
-    this.tasks = [
-      {
-        id: 1,
-        text: "Crear un roadmap para aprender express",
-        completed: true,
-      },
-    ];
-    this.currentId = 1;
-  }
+const tasks = [
+  { id: 1, task: "Jugar lol", completed: true },
+  { id: 2, task: "Momir", completed: false },
+];
 
-  getAll = () => {
-    return this.tasks;
-  };
-
-  findId = (id) => {
-    return this.tasks.find((task) => task.id === id);
-  };
-
-  createTask = (taskText) => {
-    this.currentId += 1;
-    const newTask = { id: this.currentId, text: taskText, completed: false };
-
-    this.tasks.push(newTask);
-    return newTask;
+export class TaskModel {
+  static get = {
+    allTasks: () => {
+      return tasks;
+    },
   };
 }
-
-module.exports = { TaskModel };
-
-// bueno pero muchacho pajuop tu no ves que no estas en la carpeta del proyecto
