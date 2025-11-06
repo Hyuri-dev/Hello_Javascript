@@ -2,8 +2,8 @@ import { TaskModel } from "../model/tasks.model.js";
 
 export class TaskController {
   static get = {
-    getAll: async (_req, res) => {
-      const tasklist = await TaskModel.get.allTasks();
+    All: async (req, res) => {
+      const tasklist = await TaskModel.get.all();
       res.status(200).json(tasklist);
     }, // este es el controller que vamos a referenciar en el route,
     getById: (req, res) => {
