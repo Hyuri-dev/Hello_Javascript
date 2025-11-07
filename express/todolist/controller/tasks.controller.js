@@ -1,8 +1,9 @@
 import { TaskModel } from "../model/tasks.model.js";
+import { response, request } from "express";
 
 export class TaskController {
   static get = {
-    All: async (req, res) => {
+    all: async (req, res) => {
       const tasklist = await TaskModel.get.all();
       res.status(200).json(tasklist);
     }, // este es el controller que vamos a referenciar en el route,
@@ -25,7 +26,15 @@ export class TaskController {
   };
 
   static post = {
-    create: (req, res) => {
+    create: async (req, res) => {
+      try {
+        const { task } = req.body;
+
+        const newTask = await TaskModel.create.task({ task });
+        res.status(200).json(newTask);
+      } catch (error) {
+        console.log(error);
+      }
       const { text } = req.body;
 
       if (!text) {
